@@ -1,0 +1,76 @@
+﻿<phone:PhoneApplicationPage 
+    x:Class="TuCosta.pages.ruinDetail"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:controls="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+    mc:Ignorable="d" d:DesignWidth="480" d:DesignHeight="768"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Portrait"  Orientation="Portrait"
+    shell:SystemTray.IsVisible="True"
+    xmlns:my="clr-namespace:Microsoft.Phone.Controls.Maps;assembly=Microsoft.Phone.Controls.Maps" Loaded="PhoneApplicationPage_Loaded_1"
+    xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit">
+
+    <!--LayoutRoot is the root grid where all page content is placed-->
+    <Grid x:Name="LayoutRoot" Background="Transparent">
+        <!--Pivot Control-->
+        <controls:Pivot Title="¡BIENVENIDO A!">
+            <!--Pivot item one-->
+            <controls:PivotItem>
+                <controls:PivotItem.Header>
+                    <TextBlock Name="txtRuinName" Text=""/>
+                </controls:PivotItem.Header>
+                <Grid>
+                    <Image Name="location" Height="auto" Width="auto" />
+                </Grid>
+            </controls:PivotItem>
+
+            <!--Pivot item two-->
+            <controls:PivotItem Header="descripción">
+                <ScrollViewer>
+                    <Grid>
+                        <TextBlock Name="detail" TextWrapping="Wrap" FontFamily="Segoe UI Semilight" FontSize="25" Margin="12,0,0,0" />
+                    </Grid>
+                </ScrollViewer>
+            </controls:PivotItem>
+
+            <!--Pivot item two-->
+            <controls:PivotItem Header="mapa">
+                <Grid>
+                    <my:Map 
+                        Name="map1" 
+                        CredentialsProvider="Ap9iyEIwF_bdxEYm85OiIgP3IIgsgGzoyAmH5KhrBuGbE8DVVdtJh1rX1vA8waza"
+                    />
+                </Grid>
+            </controls:PivotItem>
+
+            <!--Pivot item two-->
+            <controls:PivotItem Foreground="White" Header="comentarios">
+                <ListBox x:Name="reasonList" Height="auto" Margin="12,0,0,0">
+
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <Border BorderThickness="0,0,0,3" BorderBrush="White" Width="768">
+                                <StackPanel>
+                                    <TextBlock Foreground="White" HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding reason}" VerticalAlignment="Top"  Style="{StaticResource PhoneTextTitle2Style}"/>
+                                    <TextBlock Foreground="White" HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding date_entry}" VerticalAlignment="Top"  Style="{StaticResource PhoneTextTitle3Style}"/>
+                                </StackPanel>
+                            </Border>
+
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+
+            </controls:PivotItem>
+
+        </controls:Pivot>
+        
+
+    </Grid>
+
+</phone:PhoneApplicationPage>

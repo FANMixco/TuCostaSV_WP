@@ -17,6 +17,7 @@ using System.Xml.Serialization;
 using Newtonsoft.Json;
 using Microsoft.Phone.Reactive;
 using System.IO;
+using Microsoft.Phone.Tasks;
 
 namespace TuCosta
 {
@@ -55,10 +56,10 @@ namespace TuCosta
 
                 cm.setCenter(13.794185, -88.896530, 8, true);
 
-                List<Tuple<double, double, string, int, int>> locations = new List<Tuple<double, double, string, int, int>>();
+                List<Tuple<double, double, string, int, int, bool>> locations = new List<Tuple<double, double, string, int, int, bool>>();
 
                 for (int i = 0; i < deserialized.Count; i++)
-                    locations.Add(new Tuple<double, double, string, int, int>(deserialized[i].latitude, deserialized[i].longitude, deserialized[i].place, deserialized[i].idplace, deserialized[i].idtype));
+                    locations.Add(new Tuple<double, double, string, int, int, bool>(deserialized[i].latitude, deserialized[i].longitude, deserialized[i].place, deserialized[i].idplace, deserialized[i].idtype, false));
 
                 cm.addPushpins(locations);
 
@@ -66,9 +67,6 @@ namespace TuCosta
             w2.DownloadStringAsync(
             new Uri("http://localhost/beach/places.php?"));
 
-            ApplicationBar = new ApplicationBar();
-
-            ApplicationBar.Mode = ApplicationBarMode.Minimized;
 
             try
             {
@@ -79,20 +77,12 @@ namespace TuCosta
                         XmlSerializer serializer = new XmlSerializer(typeof(List<UserInfo>));
                         List<UserInfo> data = (List<UserInfo>)serializer.Deserialize(stream);
 
-                        ApplicationBarMenuItem menuItem1 = new ApplicationBarMenuItem();
-                        menuItem1.Text = "cerrar sesión";
-                        ApplicationBar.MenuItems.Add(menuItem1);
-                        menuItem1.Click += new EventHandler(Menu1_Click);
-
                     }
                 }
             }
             catch
             {
-                ApplicationBarMenuItem menuItem1 = new ApplicationBarMenuItem();
-                menuItem1.Text = "ingresar";
-                ApplicationBar.MenuItems.Add(menuItem1);
-                menuItem1.Click += new EventHandler(Menu2_Click);
+
             }
 
         }
@@ -111,28 +101,21 @@ namespace TuCosta
             item.SelectedIndex = -1;
         }
 
-        private void Menu2_Click(object sender, EventArgs e)
+        private void ApplicationBarIconButton_Click(object sender, EventArgs e)
+        {
+            NavigationService.Navigate(new Uri("/pages/about.xaml", UriKind.Relative));
+        }
+
+        private void ApplicationBarIconButton_Click_1(object sender, EventArgs e)
+        {
+            MarketplaceReviewTask review = new MarketplaceReviewTask();
+            review.Show();
+        }
+
+        private void menuProfile_Click(object sender, EventArgs e)
         {
             NavigationService.Navigate(new Uri("/pages/login.xaml", UriKind.Relative));
         }
 
-        private void Menu1_Click(object sender, EventArgs e)
-        {
-            //Cerrar Sesión
-            try
-            {
-                IsolatedStorageFile storage = IsolatedStorageFile.GetUserStoreForApplication();
-                storage.DeleteFile("user.xml");
-                NavigationService.Navigate(new Uri("/MainPage.xaml?Refresh=true", UriKind.Relative));
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.ToString());
-            }
-        }
-
-        private void appBar_StateChanged(object sender, Microsoft.Phone.Shell.ApplicationBarStateChangedEventArgs e)
-        {
-        }
     }
 }

@@ -54,10 +54,10 @@ namespace TuCosta.pages
 
                     cm.setCenter(13.794185, -88.896530, 8, true);
 
-                    List<Tuple<double, double, string, int, int>> locations = new List<Tuple<double, double, string, int, int>>();
+                    List<Tuple<double, double, string, int, int, bool>> locations = new List<Tuple<double, double, string, int, int, bool>>();
 
                     for (int i = 0; i < deserialized.Count; i++)
-                        locations.Add(new Tuple<double, double, string, int, int>(deserialized[i].latitude, deserialized[i].longitude, deserialized[i].place, deserialized[i].idplace, deserialized[i].idtype));
+                        locations.Add(new Tuple<double, double, string, int, int, bool>(deserialized[i].latitude, deserialized[i].longitude, deserialized[i].place, deserialized[i].idplace, deserialized[i].idtype, false));
 
                     cm.addPushpins(locations);
 
@@ -81,6 +81,11 @@ namespace TuCosta.pages
                 NavigationService.Navigate(new Uri(url, UriKind.Relative));
             }
             item.SelectedIndex = -1;
+        }
+    
+        private void menuProfile_Click(object sender, EventArgs e)
+        {
+            NavigationService.Navigate(new Uri("/pages/login.xaml", UriKind.Relative));
         }
     }
 }

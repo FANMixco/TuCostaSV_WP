@@ -14,21 +14,23 @@ using System.Windows.Controls;
 
 namespace TuCosta.classes
 {
-    public class Tuple<T1, T2, T3, T4, T5>
+    public class Tuple<T1, T2, T3, T4, T5, T6>
     {
         public T1 Latitude { get; set; }
         public T2 Longitude { get; set; }
         public T3 Name { get; set; }
         public T4 idRuin { get; set; }
         public T5 idCountry { get; set; }
+        public T6 now { get; set; }
 
-        public Tuple(T1 item1, T2 item2, T3 item3, T4 item4, T5 item5)
+        public Tuple(T1 item1, T2 item2, T3 item3, T4 item4, T5 item5, T6 item6)
         {
             Latitude = item1;
             Longitude = item2;
             Name = item3;
             idRuin = item4;
             idCountry = item5;
+            now = item6;
         }
     }
 
@@ -69,14 +71,19 @@ namespace TuCosta.classes
             }
         }
 
-        public void addPushpins(List<Tuple<double, double, string, int, int>> Values)
+        public void addPushpins(List<Tuple<double, double, string, int, int, bool>> Values)
         {
-            foreach (Tuple<double, double, string, int, int> location in Values)
+            foreach (Tuple<double, double, string, int, int, bool> location in Values)
             {
 
                 ImageBrush ib = new ImageBrush();
-                ib.ImageSource =
-                new BitmapImage(new Uri("/images/icons/" + location.idCountry.ToString() + ".png", UriKind.Relative));
+
+                if (location.now == false)
+                    ib.ImageSource =
+                        new BitmapImage(new Uri("/images/icons/" + location.idCountry.ToString() + ".png", UriKind.Relative));
+                else
+                    ib.ImageSource =
+                        new BitmapImage(new Uri("/images/icons/now/" + location.idCountry.ToString() + ".png", UriKind.Relative));
 
                 Pushpin pp = new Pushpin();
                 pp.Template = null;
@@ -94,7 +101,7 @@ namespace TuCosta.classes
                 pp.Tag = location;
             }
         }
-        public MouseButtonEventHandler getHandler(Tuple<double, double, string, int, int> cls)
+        public MouseButtonEventHandler getHandler(Tuple<double, double, string, int, int, bool> cls)
         {
             return delegate(object sender, MouseButtonEventArgs e)
             {

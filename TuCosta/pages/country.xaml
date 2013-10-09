@@ -11,7 +11,7 @@
     FontFamily="{StaticResource PhoneFontFamilyNormal}"
     FontSize="{StaticResource PhoneFontSizeNormal}"
     Foreground="{StaticResource PhoneForegroundBrush}"
-    SupportedOrientations="Portrait"  Orientation="Portrait"
+    SupportedOrientations="PortraitOrLandscape"  Orientation="Portrait"
     shell:SystemTray.IsVisible="True"    xmlns:my="clr-namespace:Microsoft.Phone.Controls.Maps;assembly=Microsoft.Phone.Controls.Maps" Loaded="PhoneApplicationPage_Loaded_1"
     xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit">
 
@@ -44,7 +44,14 @@
                             <DataTemplate>
                                 <StackPanel Orientation="Horizontal">
                                     <Image HorizontalAlignment="Left" Height="100" VerticalAlignment="Top" Width="100" Source="{Binding image}"/>
-                                    <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding place}" VerticalAlignment="Top"  Style="{StaticResource PhoneTextTitle2Style}"/>
+                                    <StackPanel>
+                                        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding place}" VerticalAlignment="Top"  Style="{StaticResource PhoneTextTitle2Style}"/>
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Votos:" VerticalAlignment="Top" Style="{StaticResource PhoneTextNormalStyle}" FontWeight="Bold" FontSize="24"/>
+                                            <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding vote}" VerticalAlignment="Top" Style="{StaticResource PhoneTextNormalStyle}" FontSize="24"/>
+
+                                        </StackPanel>
+                                        </StackPanel>
                                 </StackPanel>
 
                             </DataTemplate>
@@ -55,6 +62,15 @@
             </controls:PivotItem>
         </controls:Pivot>
     </Grid>
+    <phone:PhoneApplicationPage.ApplicationBar>
+
+        <shell:ApplicationBar Mode="Minimized" IsMenuEnabled="True" Opacity="0.9">
+
+            <shell:ApplicationBar.MenuItems>
+                <shell:ApplicationBarMenuItem x:Name="menuProfile" Text="profile" Click="menuProfile_Click"/>
+            </shell:ApplicationBar.MenuItems>
+        </shell:ApplicationBar>
+    </phone:PhoneApplicationPage.ApplicationBar>
 
 
 </phone:PhoneApplicationPage>

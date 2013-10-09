@@ -22,13 +22,22 @@
 
         <!--TitlePanel contains the name of the application and page title-->
         <StackPanel Grid.Row="0" Margin="12,17,0,28">
-            <TextBlock Text="MY APPLICATION" Style="{StaticResource PhoneTextNormalStyle}"/>
-            <TextBlock Text="page name" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}"/>
+            <TextBlock Text="TUCOSTA" Style="{StaticResource PhoneTextNormalStyle}"/>
+            <TextBlock Text="acerca de" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}"/>
         </StackPanel>
 
         <!--ContentPanel - place additional content here-->
         <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
-
+            <ScrollViewer>
+                <Grid>
+                    <TextBlock HorizontalAlignment="Left" Height="Auto" TextWrapping="Wrap" Text="TuCosta" VerticalAlignment="Top" Width="Auto" Margin="12,0,0,0" FontFamily="SegoeUI" FontWeight="Bold" FontSize="35" />
+                    <TextBlock Height="Auto" TextWrapping="Wrap" Text="Es una aplicación diseñada por Federico Navarrete en el año 2013. Buscando dar a conocer los lugares más importantes de está grandiosa cultura." VerticalAlignment="Top" Width="Auto" Margin="12,48,13,0" FontFamily="Segoe UI Semilight" FontSize="25" />
+                    <TextBlock HorizontalAlignment="Left" Height="Auto" TextWrapping="Wrap" Text="Contacto" VerticalAlignment="Top" Width="Auto" Margin="12,221,0,0" FontFamily="SegoeUI" FontWeight="Bold" FontSize="35" />
+                    <TextBlock x:Name="txtEmail" Height="Auto" TextWrapping="Wrap" Text="federico.navarrete@outlook.com" VerticalAlignment="Top" Width="Auto" Margin="12,270,13,0" FontFamily="Segoe UI Semilight" FontSize="25" Foreground="{StaticResource PhoneAccentBrush}" Tap="TextBlock_Tap_1" />
+                    <TextBlock HorizontalAlignment="Left" Height="Auto" TextWrapping="Wrap" Text="Twitter" VerticalAlignment="Top" Width="Auto" Margin="12,332,0,0" FontFamily="SegoeUI" FontWeight="Bold" FontSize="35" />
+                    <TextBlock Height="Auto" TextWrapping="Wrap" Text="@FANMixco" VerticalAlignment="Top" Width="Auto" Margin="12,380,13,0" FontFamily="Segoe UI Semilight" FontSize="25" Foreground="{StaticResource PhoneAccentBrush}" Tap="TextBlock_Tap_2" />
+                </Grid>
+            </ScrollViewer>
         </Grid>
     </Grid>
 

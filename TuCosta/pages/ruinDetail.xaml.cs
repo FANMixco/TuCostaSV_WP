@@ -19,6 +19,8 @@ using System.IO.IsolatedStorage;
 using System.IO;
 using System.Xml.Serialization;
 using Microsoft.Phone.Shell;
+using Microsoft.Phone.Tasks;
+using System.Threading;
 
 namespace TuCosta.pages
 {
@@ -26,9 +28,32 @@ namespace TuCosta.pages
     {
         List<UserInfo> data;
 
+        createMap cm;
+
+        List<Tuple<double, double, string, int, int, bool>> locations = new List<Tuple<double, double, string, int, int, bool>>();
+
         public ruinDetail()
         {
             InitializeComponent();
+        }
+
+        private void loadMap(double latitude, double longitude)
+        {
+            WebClient wTemp = new WebClient();
+            Observable
+            .FromEvent<DownloadStringCompletedEventArgs>(wTemp, "DownloadStringCompleted")
+            .Subscribe(rTemp =>
+            {
+                var dTemp = JsonConvert.DeserializeObject<List<places>>(rTemp.EventArgs.Result);
+
+
+                for (int i = 0; i < dTemp.Count; i++)
+                    locations.Add(new Tuple<double, double, string, int, int, bool>(dTemp[i].latitude, dTemp[i].longitude, dTemp[i].place, dTemp[i].idplace, dTemp[i].idtype, false));
+
+                cm.addPushpins(locations);
+            });
+            wTemp.DownloadStringAsync(
+            new Uri("http://localhost/beach/places.php?lat=" + latitude + "&long=" + longitude));
         }
 
         private void PhoneApplicationPage_Loaded_1(object sender, RoutedEventArgs e)
@@ -50,40 +75,32 @@ namespace TuCosta.pages
                     location.Source = new BitmapImage(uri);
 
                     txtRuinName.Text = deserialized[0].place;
+
+                    phone.Text = deserialized[0].phone;
+                    
+                    email.Text= deserialized[0].email;
+
                     detail.Text = deserialized[0].description;
 
-                    createMap cm = new createMap(map1);
+                    website.Text = deserialized[0].website;
 
-                    cm.setCenter(13.794185, -88.896530, 8, true);
+                    schedule.Text = deserialized[0].schedule;
 
-                    List<Tuple<double, double, string, int, int>> locations = new List<Tuple<double, double, string, int, int>>();
+                    extra.Text = deserialized[0].extra;
 
-                    locations.Add(new Tuple<double, double, string, int, int>(deserialized[0].latitude, deserialized[0].longitude, deserialized[0].place, deserialized[0].idplace, deserialized[0].idtype));
+                    cm = new createMap(map1);
 
-                    cm.addPushpins(locations);
+                    cm.setCenter(deserialized[0].latitude, deserialized[0].longitude, 14, true);
 
+                    locations.Add(new Tuple<double, double, string, int, int, bool>(deserialized[0].latitude, deserialized[0].longitude, deserialized[0].place, deserialized[0].idplace, deserialized[0].idtype, true));
+
+                    loadMap(deserialized[0].latitude, deserialized[0].longitude);
                 });
                 w.DownloadStringAsync(
                 new Uri("http://localhost/beach/places.php?idplace=" + id));
             }
             else
                 MessageBox.Show("No hay internet");
-
-            ApplicationBar = new ApplicationBar();
-
-            ApplicationBar.Opacity = 0.9;
-
-            ApplicationBarIconButton button1 = new ApplicationBarIconButton();
-            button1.IconUri = new Uri("/Toolkit.Content/ApplicationBar.Check.png", UriKind.Relative);
-            button1.Text = "like";
-            ApplicationBar.Buttons.Add(button1);
-            button1.Click += new EventHandler(ApplicationBarIconButton_Click_1);
-
-            ApplicationBarIconButton button2 = new ApplicationBarIconButton();
-            button2.IconUri = new Uri("/Toolkit.Content/ApplicationBar.Cancel.png", UriKind.Relative);
-            button2.Text = "dislike";
-            ApplicationBar.Buttons.Add(button2);
-            button2.Click += new EventHandler(ApplicationBarIconButton_Click);
 
             try
             {
@@ -94,23 +111,19 @@ namespace TuCosta.pages
                         XmlSerializer serializer = new XmlSerializer(typeof(List<UserInfo>));
                         data = (List<UserInfo>)serializer.Deserialize(stream);
 
-                        ApplicationBarMenuItem menuItem1 = new ApplicationBarMenuItem();
-                        menuItem1.Text = "cerrar sesión";
-                        ApplicationBar.MenuItems.Add(menuItem1);
-                        menuItem1.Click += new EventHandler(Menu2_Click);
-
                     }
                 }
             }
             catch
             {
-                ApplicationBarMenuItem menuItem1 = new ApplicationBarMenuItem();
-                menuItem1.Text = "ingresar";
-                ApplicationBar.MenuItems.Add(menuItem1);
-                menuItem1.Click += new EventHandler(Menu1_Click);
             }
 
         }
+
+        private void menuProfile_Click(object sender, EventArgs e)
+        {
+            NavigationService.Navigate(new Uri("/pages/login.xaml", UriKind.Relative));
+        }    
 
         private void Menu2_Click(object sender, EventArgs e)
         {
@@ -202,7 +215,7 @@ namespace TuCosta.pages
             new Uri("http://localhost/beach/comments.php?id=" + idtopic + "&r=" + Guid.NewGuid().ToString()));
         }
 
-        private void ApplicationBarIconButton_Click_1(object sender, EventArgs e)
+        private void likeButton_Click(object sender, EventArgs e)
         {
             try
             {
@@ -216,12 +229,12 @@ namespace TuCosta.pages
             }
         }
 
-        private void ApplicationBarIconButton_Click(object sender, EventArgs e)
+        private void dislikeButton_Click(object sender, EventArgs e)
         {
             try
             {
                 var total = data.Count;
-                createMessageBox(0);
+                createMessageBox(-1);
             }
             catch
             {
@@ -230,18 +243,32 @@ namespace TuCosta.pages
             }
         }
 
-        private void ApplicationBarIconButton_Click_2(object sender, EventArgs e)
+        private void TextBlock_Tap_1(object sender, System.Windows.Input.GestureEventArgs e)
         {
-            try
+            EmailComposeTask emailComposeTask = new EmailComposeTask
             {
-                var total = data.Count;
-                createMessageBox(2);
-            }
-            catch
-            {
-                MessageBox.Show("Necesita ingresar al sistema para votar, ¡Gracias!");
-                return;
-            }
+                To = email.Text
+            };
+
+            emailComposeTask.Show();
         }
+
+        private void TextBlock_Tap_2(object sender, System.Windows.Input.GestureEventArgs e)
+        {
+            WebBrowserTask webBrowserTask = new WebBrowserTask();
+            webBrowserTask.Uri = new Uri("http://" + website.Text);
+            webBrowserTask.Show();
+        }
+
+        private void phone_Tap(object sender, System.Windows.Input.GestureEventArgs e)
+        {
+            PhoneCallTask phoneCallTask = new PhoneCallTask();
+
+            phoneCallTask.PhoneNumber = phone.Text;
+            phoneCallTask.DisplayName = txtRuinName.Text;
+
+            phoneCallTask.Show();
+        }
+
     }
 }

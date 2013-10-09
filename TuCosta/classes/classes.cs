@@ -21,10 +21,13 @@ namespace TuCosta.classes
         public string description { get; set; }
         public string email { get; set; }
         public string phone { get; set; }
+        public string website { get; set; }
+        public string extra { get; set; }
         public string schedule { get; set; }
         public double latitude { get; set; }
         public double longitude { get; set; }
         public string image { get; set; }
+        public int vote { get; set; }
     }
 
     public class result
@@ -42,16 +45,10 @@ namespace TuCosta.classes
     public class UserInfo
     {
         string uname;
-        string pwd;
         public string Username
         {
             get { return uname; }
             set { uname = value; }
-        }
-        public string Password
-        {
-            get { return pwd; }
-            set { pwd = value; }
         }
     }
 

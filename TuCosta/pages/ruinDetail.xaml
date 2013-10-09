@@ -11,7 +11,7 @@
     FontFamily="{StaticResource PhoneFontFamilyNormal}"
     FontSize="{StaticResource PhoneFontSizeNormal}"
     Foreground="{StaticResource PhoneForegroundBrush}"
-    SupportedOrientations="Portrait"  Orientation="Portrait"
+    SupportedOrientations="PortraitOrLandscape"  Orientation="Portrait"
     shell:SystemTray.IsVisible="True"
     xmlns:my="clr-namespace:Microsoft.Phone.Controls.Maps;assembly=Microsoft.Phone.Controls.Maps" Loaded="PhoneApplicationPage_Loaded_1"
     xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit">
@@ -35,6 +35,36 @@
                 <ScrollViewer>
                     <Grid>
                         <TextBlock Name="detail" TextWrapping="Wrap" FontFamily="Segoe UI Semilight" FontSize="25" Margin="12,0,0,0" />
+                    </Grid>
+                </ScrollViewer>
+            </controls:PivotItem>
+
+            <!--Pivot item two-->
+            <controls:PivotItem Header="contacto">
+                <ScrollViewer>
+                    <Grid>
+                        <StackPanel>
+                            <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Teléfono:" VerticalAlignment="Top" FontWeight="Bold" Style="{StaticResource PhoneTextNormalStyle}" FontSize="36"/>
+
+                            <TextBlock Name="phone" TextWrapping="Wrap" FontFamily="Segoe UI Semilight" FontSize="25" Margin="12,0,0,0" Tap="phone_Tap" Foreground="{StaticResource PhoneAccentBrush}" TextDecorations="Underline" />
+
+                            <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Correo Electrónico:" VerticalAlignment="Top" FontWeight="Bold" Style="{StaticResource PhoneTextNormalStyle}" FontSize="36"/>
+
+                            <TextBlock Name="email" TextWrapping="Wrap" FontFamily="Segoe UI Semilight" FontSize="25" Margin="12,0,0,0" Tap="TextBlock_Tap_1" Foreground="{StaticResource PhoneAccentBrush}" TextDecorations="Underline" />
+
+                            <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Sitio Web:" VerticalAlignment="Top" FontWeight="Bold" Style="{StaticResource PhoneTextNormalStyle}" FontSize="36"/>
+
+                            <TextBlock Name="website" TextWrapping="Wrap" FontFamily="Segoe UI Semilight" FontSize="25" Margin="12,0,0,0" Foreground="{StaticResource PhoneAccentBrush}" Tap="TextBlock_Tap_2" TextDecorations="Underline" />
+
+                            <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Horario:" VerticalAlignment="Top" FontWeight="Bold" Style="{StaticResource PhoneTextNormalStyle}" FontSize="36"/>
+
+                            <TextBlock Name="schedule" TextWrapping="Wrap" FontFamily="Segoe UI Semilight" FontSize="25" Margin="12,0,0,0" />
+
+                            <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Información adicional:" VerticalAlignment="Top" FontWeight="Bold" Style="{StaticResource PhoneTextNormalStyle}" FontSize="36"/>
+
+                            <TextBlock Name="extra" TextWrapping="Wrap" FontFamily="Segoe UI Semilight" FontSize="25" Margin="12,0,0,0" />
+
+                        </StackPanel>
                     </Grid>
                 </ScrollViewer>
             </controls:PivotItem>
@@ -69,8 +99,18 @@
             </controls:PivotItem>
 
         </controls:Pivot>
-        
+
 
     </Grid>
 
+    <phone:PhoneApplicationPage.ApplicationBar>
+        <shell:ApplicationBar Mode="Minimized" IsMenuEnabled="True" Opacity="0.9">
+            <shell:ApplicationBarIconButton x:Name="likeButton" IconUri="/Toolkit.Content/ApplicationBar.Check.png" Text="like" Click="likeButton_Click"/>
+            <shell:ApplicationBarIconButton x:Name="dislikeButton" IconUri="/Toolkit.Content/ApplicationBar.Cancel.png" Text="dislike" Click="dislikeButton_Click"/>
+
+            <shell:ApplicationBar.MenuItems>
+                <shell:ApplicationBarMenuItem x:Name="menuProfile" Text="profile" Click="menuProfile_Click"/>
+            </shell:ApplicationBar.MenuItems>
+        </shell:ApplicationBar>
+    </phone:PhoneApplicationPage.ApplicationBar>
 </phone:PhoneApplicationPage>

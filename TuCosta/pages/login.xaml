@@ -11,7 +11,10 @@
     Foreground="{StaticResource PhoneForegroundBrush}"
     SupportedOrientations="Portrait" Orientation="Portrait"
     mc:Ignorable="d"
-    shell:SystemTray.IsVisible="True">
+    shell:SystemTray.IsVisible="True"
+    xmlns:controls="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls"
+    xmlns:live="clr-namespace:Microsoft.Live.Controls;assembly=Microsoft.Live.Controls"    
+   >
 
     <!--LayoutRoot is the root grid where all page content is placed-->
     <Grid x:Name="LayoutRoot" Background="Transparent">
@@ -21,20 +24,21 @@
         </Grid.RowDefinitions>
 
         <!--TitlePanel contains the name of the application and page title-->
-        <StackPanel Grid.Row="0" Margin="12,17,0,28">
-            <TextBlock Text="INGRESAR" Style="{StaticResource PhoneTextNormalStyle}"/>
+        <StackPanel x:Name="TitlePanel" Grid.Row="0" Margin="12,17,0,28">
+            <TextBlock x:Name="ApplicationTitle" Text="TUCOSTASV" Style="{StaticResource PhoneTextNormalStyle}"/>
+            <TextBlock x:Name="PageTitle" Text="LIVE CONNECT" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}"/>
         </StackPanel>
 
         <!--ContentPanel - place additional content here-->
         <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
-            <StackPanel>
-                <TextBlock TextWrapping="Wrap" Text="Usuario:" Style="{StaticResource PhoneTextTitle2Style}"/>
-                <TextBox x:Name="txtUser" Height="72" MaxLength="10" Text=""/>
-                <TextBlock TextWrapping="Wrap" Text="Contraseña:" Style="{StaticResource PhoneTextTitle2Style}"/>
-                <PasswordBox x:Name="txtPass" Height="72" />
-                <Button x:Name="btnLogin" Content="ingresar" Click="btnLogin_Click"/>
-                <Button x:Name="btnRegister" Content="registrar" Click="btnRegister_Click"/>
+            <StackPanel x:Name="loginStackPanel" Width="200" Height="100" VerticalAlignment="Bottom" HorizontalAlignment="Center">
+                <live:SignInButton ClientId="0000000044102E64" Scopes="wl.basic wl.offline_access wl.signin wl.contacts_birthday" Branding="Windows" TextType="Login"  d:LayoutOverrides="VerticalAlignment" SessionChanged="SignInButton_SessionChanged" />
             </StackPanel>
+            <TextBlock Height="66"  Visibility="Collapsed"  HorizontalAlignment="Left" Margin="26,65,0,0" Name="textBlockHeader" Text="User Information" VerticalAlignment="Top" Width="302" FontSize="40" />
+            <Image Height="105" HorizontalAlignment="Left" Margin="26,167,0,0" Name="imageUser" Stretch="Fill" VerticalAlignment="Top" Width="105" />
+            <TextBlock Height="50" HorizontalAlignment="Left" Margin="154,167,0,0" Name="textBlockName" Text="" VerticalAlignment="Top" Width="274" FontSize="32" />
+            <TextBlock Height="30" Visibility="Collapsed" HorizontalAlignment="Left" Margin="154,229,0,0" Name="textBlockBtitle" Text="Birthday: " VerticalAlignment="Top" Width="84"  FontSize="22"/>
+            <TextBlock Height="30" HorizontalAlignment="Left" Margin="252,229,0,0" Name="textBlockBday" Text="" VerticalAlignment="Top" Width="184" TextAlignment="Left"  FontSize="22"/>
         </Grid>
     </Grid>
 

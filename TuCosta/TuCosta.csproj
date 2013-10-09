@@ -163,6 +163,36 @@
     <Content Include="images\icons\now\5.png" />
     <Content Include="images\icons\now\6.png" />
     <Content Include="images\icons\now\7.png" />
+    <Content Include="images\places\1.jpg" />
+    <Content Include="images\places\10.jpg" />
+    <Content Include="images\places\11.jpg" />
+    <Content Include="images\places\12.jpg" />
+    <Content Include="images\places\13.jpg" />
+    <Content Include="images\places\14.jpg" />
+    <Content Include="images\places\15.jpg" />
+    <Content Include="images\places\16.jpg" />
+    <Content Include="images\places\17.jpg" />
+    <Content Include="images\places\18.jpg" />
+    <Content Include="images\places\19.jpg" />
+    <Content Include="images\places\2.jpg" />
+    <Content Include="images\places\20.jpg" />
+    <Content Include="images\places\21.jpg" />
+    <Content Include="images\places\22.jpg" />
+    <Content Include="images\places\23.jpg" />
+    <Content Include="images\places\24.jpg" />
+    <Content Include="images\places\25.jpg" />
+    <Content Include="images\places\26.jpg" />
+    <Content Include="images\places\27.jpg" />
+    <Content Include="images\places\3.jpg" />
+    <Content Include="images\places\4.jpg" />
+    <Content Include="images\places\5.jpg" />
+    <Content Include="images\places\6.jpg" />
+    <Content Include="images\places\7.jpg" />
+    <Content Include="images\places\8.JPG" />
+    <Content Include="images\places\9.jpg" />
+    <Content Include="images\type\1.jpg" />
+    <Content Include="images\type\2.jpg" />
+    <Content Include="images\type\5.jpg" />
     <Content Include="README_FIRST.txt" />
     <Content Include="SplashScreenImage.jpg" />
     <Content Include="Toolkit.Content\ApplicationBar.Add.png" />
@@ -171,10 +201,7 @@
     <Content Include="Toolkit.Content\ApplicationBar.Delete.png" />
     <Content Include="Toolkit.Content\ApplicationBar.Select.png" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="images\places\" />
-    <Folder Include="images\type\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <EmbeddedResource Include="Resources\AppResources.es.resx" />
     <EmbeddedResource Include="Resources\AppResources.resx">

@@ -1,8 +1,8 @@
-﻿<xapCache source="C:\Users\Federico Navarrete\documents\visual studio 2012\Projects\TuCosta\TuCosta\Bin\Debug\TuCosta.xap" wasSigned="False" certificateThumbprint="" TimeStampUrl="" lastWriteTime="10/9/2013 2:02:20 AM">
+﻿<xapCache source="C:\Users\Federico Navarrete\documents\visual studio 2012\Projects\TuCosta\TuCosta\Bin\Debug\TuCosta.xap" wasSigned="False" certificateThumbprint="" TimeStampUrl="" lastWriteTime="10/9/2013 2:15:51 AM">
   <file source="C:\Users\Federico Navarrete\documents\visual studio 2012\Projects\TuCosta\TuCosta\Bin\Debug\WMAppManifest.xml" archivePath="WMAppManifest.xml" lastWriteTime="10/4/2013 8:44:54 PM" />
   <file source="C:\Users\Federico Navarrete\documents\visual studio 2012\Projects\TuCosta\TuCosta\Background.png" archivePath="Background.png" lastWriteTime="10/6/2013 10:48:41 PM" />
   <file source="C:\Users\Federico Navarrete\documents\visual studio 2012\Projects\TuCosta\TuCosta\ApplicationIcon.png" archivePath="ApplicationIcon.png" lastWriteTime="10/6/2013 10:39:06 PM" />
-  <file source="C:\Users\Federico Navarrete\documents\visual studio 2012\Projects\TuCosta\TuCosta\obj\Debug\TuCosta.dll" archivePath="TuCosta.dll" lastWriteTime="10/9/2013 2:02:20 AM" />
+  <file source="C:\Users\Federico Navarrete\documents\visual studio 2012\Projects\TuCosta\TuCosta\obj\Debug\TuCosta.dll" archivePath="TuCosta.dll" lastWriteTime="10/9/2013 2:15:50 AM" />
   <file source="C:\Program Files (x86)\Microsoft SDKs\Live\v5.4\Windows Phone 7.1\References\Microsoft.Live.Controls.dll" archivePath="Microsoft.Live.Controls.dll" lastWriteTime="6/20/2013 11:14:46 AM" />
   <file source="C:\Program Files (x86)\Microsoft SDKs\Live\v5.4\Windows Phone 7.1\References\Microsoft.Live.dll" archivePath="Microsoft.Live.dll" lastWriteTime="6/20/2013 11:12:16 AM" />
   <file source="C:\Program Files (x86)\Microsoft SDKs\Windows Phone\v7.1\Libraries\Silverlight\Microsoft.Phone.Controls.dll" archivePath="Microsoft.Phone.Controls.dll" lastWriteTime="7/6/2012 1:40:16 AM" />
@@ -27,6 +27,36 @@
   <file source="C:\Users\Federico Navarrete\documents\visual studio 2012\Projects\TuCosta\TuCosta\images\icons\now\5.png" archivePath="images\icons\now\5.png" lastWriteTime="10/9/2013 12:42:18 AM" />
   <file source="C:\Users\Federico Navarrete\documents\visual studio 2012\Projects\TuCosta\TuCosta\images\icons\now\6.png" archivePath="images\icons\now\6.png" lastWriteTime="10/9/2013 12:42:12 AM" />
   <file source="C:\Users\Federico Navarrete\documents\visual studio 2012\Projects\TuCosta\TuCosta\images\icons\now\7.png" archivePath="images\icons\now\7.png" lastWriteTime="10/9/2013 12:37:09 AM" />
+  <file source="C:\Users\Federico Navarrete\documents\visual studio 2012\Projects\TuCosta\TuCosta\images\places\1.jpg" archivePath="images\places\1.jpg" lastWriteTime="10/5/2013 1:43:58 PM" />
+  <file source="C:\Users\Federico Navarrete\documents\visual studio 2012\Projects\TuCosta\TuCosta\images\places\10.jpg" archivePath="images\places\10.jpg" lastWriteTime="10/5/2013 1:34:40 PM" />
+  <file source="C:\Users\Federico Navarrete\documents\visual studio 2012\Projects\TuCosta\TuCosta\images\places\11.jpg" archivePath="images\places\11.jpg" lastWriteTime="10/5/2013 1:24:20 PM" />
+  <file source="C:\Users\Federico Navarrete\documents\visual studio 2012\Projects\TuCosta\TuCosta\images\places\12.jpg" archivePath="images\places\12.jpg" lastWriteTime="10/5/2013 1:29:54 PM" />
+  <file source="C:\Users\Federico Navarrete\documents\visual studio 2012\Projects\TuCosta\TuCosta\images\places\13.jpg" archivePath="images\places\13.jpg" lastWriteTime="10/5/2013 1:02:12 PM" />
+  <file source="C:\Users\Federico Navarrete\documents\visual studio 2012\Projects\TuCosta\TuCosta\images\places\14.jpg" archivePath="images\places\14.jpg" lastWriteTime="10/5/2013 1:36:32 PM" />
+  <file source="C:\Users\Federico Navarrete\documents\visual studio 2012\Projects\TuCosta\TuCosta\images\places\15.jpg" archivePath="images\places\15.jpg" lastWriteTime="10/5/2013 1:00:24 PM" />
+  <file source="C:\Users\Federico Navarrete\documents\visual studio 2012\Projects\TuCosta\TuCosta\images\places\16.jpg" archivePath="images\places\16.jpg" lastWriteTime="10/5/2013 2:20:04 PM" />
+  <file source="C:\Users\Federico Navarrete\documents\visual studio 2012\Projects\TuCosta\TuCosta\images\places\17.jpg" archivePath="images\places\17.jpg" lastWriteTime="10/8/2013 4:00:39 PM" />
+  <file source="C:\Users\Federico Navarrete\documents\visual studio 2012\Projects\TuCosta\TuCosta\images\places\18.jpg" archivePath="images\places\18.jpg" lastWriteTime="10/8/2013 4:04:22 PM" />
+  <file source="C:\Users\Federico Navarrete\documents\visual studio 2012\Projects\TuCosta\TuCosta\images\places\19.jpg" archivePath="images\places\19.jpg" lastWriteTime="10/8/2013 4:07:09 PM" />
+  <file source="C:\Users\Federico Navarrete\documents\visual studio 2012\Projects\TuCosta\TuCosta\images\places\2.jpg" archivePath="images\places\2.jpg" lastWriteTime="10/5/2013 1:42:38 PM" />
+  <file source="C:\Users\Federico Navarrete\documents\visual studio 2012\Projects\TuCosta\TuCosta\images\places\20.jpg" archivePath="images\places\20.jpg" lastWriteTime="10/8/2013 4:12:27 PM" />
+  <file source="C:\Users\Federico Navarrete\documents\visual studio 2012\Projects\TuCosta\TuCosta\images\places\21.jpg" archivePath="images\places\21.jpg" lastWriteTime="10/8/2013 4:14:32 PM" />
+  <file source="C:\Users\Federico Navarrete\documents\visual studio 2012\Projects\TuCosta\TuCosta\images\places\22.jpg" archivePath="images\places\22.jpg" lastWriteTime="10/8/2013 4:15:29 PM" />
+  <file source="C:\Users\Federico Navarrete\documents\visual studio 2012\Projects\TuCosta\TuCosta\images\places\23.jpg" archivePath="images\places\23.jpg" lastWriteTime="10/8/2013 4:16:09 PM" />
+  <file source="C:\Users\Federico Navarrete\documents\visual studio 2012\Projects\TuCosta\TuCosta\images\places\24.jpg" archivePath="images\places\24.jpg" lastWriteTime="10/8/2013 4:25:13 PM" />
+  <file source="C:\Users\Federico Navarrete\documents\visual studio 2012\Projects\TuCosta\TuCosta\images\places\25.jpg" archivePath="images\places\25.jpg" lastWriteTime="10/8/2013 4:25:16 PM" />
+  <file source="C:\Users\Federico Navarrete\documents\visual studio 2012\Projects\TuCosta\TuCosta\images\places\26.jpg" archivePath="images\places\26.jpg" lastWriteTime="10/8/2013 4:25:20 PM" />
+  <file source="C:\Users\Federico Navarrete\documents\visual studio 2012\Projects\TuCosta\TuCosta\images\places\27.jpg" archivePath="images\places\27.jpg" lastWriteTime="10/8/2013 4:37:01 PM" />
+  <file source="C:\Users\Federico Navarrete\documents\visual studio 2012\Projects\TuCosta\TuCosta\images\places\3.jpg" archivePath="images\places\3.jpg" lastWriteTime="10/5/2013 1:40:56 PM" />
+  <file source="C:\Users\Federico Navarrete\documents\visual studio 2012\Projects\TuCosta\TuCosta\images\places\4.jpg" archivePath="images\places\4.jpg" lastWriteTime="10/5/2013 1:38:12 PM" />
+  <file source="C:\Users\Federico Navarrete\documents\visual studio 2012\Projects\TuCosta\TuCosta\images\places\5.jpg" archivePath="images\places\5.jpg" lastWriteTime="10/5/2013 1:32:16 PM" />
+  <file source="C:\Users\Federico Navarrete\documents\visual studio 2012\Projects\TuCosta\TuCosta\images\places\6.jpg" archivePath="images\places\6.jpg" lastWriteTime="10/5/2013 1:35:44 PM" />
+  <file source="C:\Users\Federico Navarrete\documents\visual studio 2012\Projects\TuCosta\TuCosta\images\places\7.jpg" archivePath="images\places\7.jpg" lastWriteTime="10/5/2013 1:27:00 PM" />
+  <file source="C:\Users\Federico Navarrete\documents\visual studio 2012\Projects\TuCosta\TuCosta\images\places\8.JPG" archivePath="images\places\8.JPG" lastWriteTime="10/5/2013 1:28:00 PM" />
+  <file source="C:\Users\Federico Navarrete\documents\visual studio 2012\Projects\TuCosta\TuCosta\images\places\9.jpg" archivePath="images\places\9.jpg" lastWriteTime="10/5/2013 1:28:52 PM" />
+  <file source="C:\Users\Federico Navarrete\documents\visual studio 2012\Projects\TuCosta\TuCosta\images\type\1.jpg" archivePath="images\type\1.jpg" lastWriteTime="10/8/2013 2:47:26 PM" />
+  <file source="C:\Users\Federico Navarrete\documents\visual studio 2012\Projects\TuCosta\TuCosta\images\type\2.jpg" archivePath="images\type\2.jpg" lastWriteTime="10/8/2013 2:47:34 PM" />
+  <file source="C:\Users\Federico Navarrete\documents\visual studio 2012\Projects\TuCosta\TuCosta\images\type\5.jpg" archivePath="images\type\5.jpg" lastWriteTime="10/8/2013 4:10:26 PM" />
   <file source="C:\Users\Federico Navarrete\documents\visual studio 2012\Projects\TuCosta\TuCosta\README_FIRST.txt" archivePath="README_FIRST.txt" lastWriteTime="10/4/2013 8:53:29 PM" />
   <file source="C:\Users\Federico Navarrete\documents\visual studio 2012\Projects\TuCosta\TuCosta\SplashScreenImage.jpg" archivePath="SplashScreenImage.jpg" lastWriteTime="10/6/2013 10:46:36 PM" />
   <file source="C:\Users\Federico Navarrete\documents\visual studio 2012\Projects\TuCosta\TuCosta\Toolkit.Content\ApplicationBar.Add.png" archivePath="Toolkit.Content\ApplicationBar.Add.png" lastWriteTime="10/4/2013 8:53:29 PM" />

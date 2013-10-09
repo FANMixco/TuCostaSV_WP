@@ -71,7 +71,7 @@ namespace TuCosta.pages
                 .Subscribe(r =>
                 {
                     var deserialized = JsonConvert.DeserializeObject<List<places>>(r.EventArgs.Result);
-                    Uri uri = new Uri(deserialized[0].image, UriKind.Absolute);
+                    Uri uri = new Uri(deserialized[0].image, UriKind.Relative);
                     location.Source = new BitmapImage(uri);
 
                     txtRuinName.Text = deserialized[0].place;

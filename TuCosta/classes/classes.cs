@@ -40,6 +40,7 @@ namespace TuCosta.classes
         public int idtype { get; set; }
         public string name { get; set; }
         public string image { get; set; }
+        public int vote { get; set; }
     }
 
     public class UserInfo

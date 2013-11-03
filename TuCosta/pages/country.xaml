@@ -20,7 +20,7 @@
 
 
         <!--Pivot Control-->
-        <controls:Pivot Title="conoce más sobre" Grid.RowSpan="2" Grid.ColumnSpan="2">
+        <controls:Pivot Title="{Binding Path=AppResources.LearnMore, Source={StaticResource LocalizedStrings}}" Grid.RowSpan="2" Grid.ColumnSpan="2">
 
             <!--Pivot item one-->
             <controls:PivotItem x:Name="mapName">
@@ -36,7 +36,7 @@
             </controls:PivotItem>
 
             <!--Pivot item two-->
-            <controls:PivotItem Header="lugares">
+            <controls:PivotItem Header="{Binding Path=AppResources.AppPlaces, Source={StaticResource LocalizedStrings}}">
                 <Grid>
                     <ListBox x:Name="ruinsList" Height="auto" Tap="PhoneList_Tap" Margin="12,0,0,0">
 
@@ -47,11 +47,11 @@
                                     <StackPanel>
                                         <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding place}" VerticalAlignment="Top"  Style="{StaticResource PhoneTextTitle2Style}"/>
                                         <StackPanel Orientation="Horizontal">
-                                            <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Votos:" VerticalAlignment="Top" Style="{StaticResource PhoneTextNormalStyle}" FontWeight="Bold" FontSize="24"/>
+                                            <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding Path=AppResources.Likes, Source={StaticResource LocalizedStrings}}" VerticalAlignment="Top" Style="{StaticResource PhoneTextNormalStyle}" FontWeight="Bold" FontSize="24"/>
                                             <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding vote}" VerticalAlignment="Top" Style="{StaticResource PhoneTextNormalStyle}" FontSize="24"/>
 
                                         </StackPanel>
-                                        </StackPanel>
+                                    </StackPanel>
                                 </StackPanel>
 
                             </DataTemplate>

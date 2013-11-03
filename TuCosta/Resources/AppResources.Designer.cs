@@ -22,7 +22,7 @@ namespace TuCosta.Resources {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class AppResources {
+    public class AppResources {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
@@ -36,7 +36,7 @@ namespace TuCosta.Resources {
         ///   Returns the cached ResourceManager instance used by this class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Resources.ResourceManager ResourceManager {
+        public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
                     global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("TuCosta.Resources.AppResources", typeof(AppResources).Assembly);
@@ -51,12 +51,318 @@ namespace TuCosta.Resources {
         ///   resource lookups using this strongly typed resource class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Globalization.CultureInfo Culture {
+        public static global::System.Globalization.CultureInfo Culture {
             get {
                 return resourceCulture;
             }
             set {
                 resourceCulture = value;
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Acknowledgements.
+        /// </summary>
+        public static string AboutAck {
+            get {
+                return ResourceManager.GetString("AboutAck", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Contact.
+        /// </summary>
+        public static string AboutCont {
+            get {
+                return ResourceManager.GetString("AboutCont", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to It is an application designed by Federico Navarrete in 2013. Looking to show the most important places of this millenary culture!.
+        /// </summary>
+        public static string AboutDesc {
+            get {
+                return ResourceManager.GetString("AboutDesc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Mundo Maya, 20minutos.es, National Geographic and Wikipedia.org projects without their valuable assistance, this project would not be a reality..
+        /// </summary>
+        public static string Acknowledgement {
+            get {
+                return ResourceManager.GetString("Acknowledgement", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Do you want to add a comment?.
+        /// </summary>
+        public static string AddVote {
+            get {
+                return ResourceManager.GetString("AddVote", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to about.
+        /// </summary>
+        public static string AppAbout {
+            get {
+                return ResourceManager.GetString("AppAbout", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to categories.
+        /// </summary>
+        public static string AppCat {
+            get {
+                return ResourceManager.GetString("AppCat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to contacts.
+        /// </summary>
+        public static string AppContact {
+            get {
+                return ResourceManager.GetString("AppContact", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to countries.
+        /// </summary>
+        public static string AppCountry {
+            get {
+                return ResourceManager.GetString("AppCountry", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to description.
+        /// </summary>
+        public static string AppDescription {
+            get {
+                return ResourceManager.GetString("AppDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to E-mail:.
+        /// </summary>
+        public static string AppEmail {
+            get {
+                return ResourceManager.GetString("AppEmail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Extra:.
+        /// </summary>
+        public static string AppExtra {
+            get {
+                return ResourceManager.GetString("AppExtra", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to LEARN MORE ABOUT!.
+        /// </summary>
+        public static string AppLearn {
+            get {
+                return ResourceManager.GetString("AppLearn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to location.
+        /// </summary>
+        public static string AppLocation {
+            get {
+                return ResourceManager.GetString("AppLocation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to map.
+        /// </summary>
+        public static string AppMap {
+            get {
+                return ResourceManager.GetString("AppMap", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Telephone:.
+        /// </summary>
+        public static string AppPhone {
+            get {
+                return ResourceManager.GetString("AppPhone", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to places.
+        /// </summary>
+        public static string AppPlaces {
+            get {
+                return ResourceManager.GetString("AppPlaces", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Schedule:.
+        /// </summary>
+        public static string AppSchedule {
+            get {
+                return ResourceManager.GetString("AppSchedule", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to UR_SEASHORE.
+        /// </summary>
+        public static string AppTitle {
+            get {
+                return ResourceManager.GetString("AppTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Web Site:.
+        /// </summary>
+        public static string AppWeb {
+            get {
+                return ResourceManager.GetString("AppWeb", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to WELCOME TO!.
+        /// </summary>
+        public static string AppWelcome {
+            get {
+                return ResourceManager.GetString("AppWelcome", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Sorry try another time!.
+        /// </summary>
+        public static string BugVote {
+            get {
+                return ResourceManager.GetString("BugVote", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to comments.
+        /// </summary>
+        public static string Comments {
+            get {
+                return ResourceManager.GetString("Comments", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Sorry but we can&apos;t connect to internet..
+        /// </summary>
+        public static string Internet {
+            get {
+                return ResourceManager.GetString("Internet", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Lern more about:.
+        /// </summary>
+        public static string Learn {
+            get {
+                return ResourceManager.GetString("Learn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to LEARN MORE ABOUT!.
+        /// </summary>
+        public static string LearnMore {
+            get {
+                return ResourceManager.GetString("LearnMore", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Likes:.
+        /// </summary>
+        public static string Likes {
+            get {
+                return ResourceManager.GetString("Likes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Sorry, you need to login in order to vote!.
+        /// </summary>
+        public static string NoLogin {
+            get {
+                return ResourceManager.GetString("NoLogin", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ok.
+        /// </summary>
+        public static string Ok {
+            get {
+                return ResourceManager.GetString("Ok", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to profile.
+        /// </summary>
+        public static string Profile {
+            get {
+                return ResourceManager.GetString("Profile", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You vote for this place, thanks!.
+        /// </summary>
+        public static string SameVote {
+            get {
+                return ResourceManager.GetString("SameVote", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Thanks for vote!.
+        /// </summary>
+        public static string ThanksVote {
+            get {
+                return ResourceManager.GetString("ThanksVote", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to read more....
+        /// </summary>
+        public static string View {
+            get {
+                return ResourceManager.GetString("View", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to yes.
+        /// </summary>
+        public static string Yes {
+            get {
+                return ResourceManager.GetString("Yes", resourceCulture);
             }
         }
     }

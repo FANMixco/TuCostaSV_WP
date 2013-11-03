@@ -7,5 +7,8 @@
     <AssemblyPart x:Name="Microsoft.Phone.Controls.Maps" Source="Microsoft.Phone.Controls.Maps.dll" />
     <AssemblyPart x:Name="Microsoft.Phone.Controls.Toolkit" Source="Microsoft.Phone.Controls.Toolkit.dll" />
     <AssemblyPart x:Name="Newtonsoft.Json" Source="Newtonsoft.Json.dll" />
+    <AssemblyPart Source="ar-BH/TuCosta.resources.dll" />
+    <AssemblyPart Source="es/TuCosta.resources.dll" />
+    <AssemblyPart Source="es/Microsoft.Live.Controls.resources.dll" />
   </Deployment.Parts>
 </Deployment>

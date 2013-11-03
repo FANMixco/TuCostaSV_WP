@@ -11,6 +11,7 @@ using System.Windows.Shapes;
 using Microsoft.Phone.Controls;
 using System.Windows.Input;
 using System.Windows.Controls;
+using TuCosta.Resources;
 
 namespace TuCosta.classes
 {
@@ -110,10 +111,10 @@ namespace TuCosta.classes
 
                 CustomMessageBox messageBox = new CustomMessageBox()
                 {
-                    Caption = "Conoce más sobre:",
+                    Caption = AppResources.Learn.ToString(),
                     Message = cls.Name,
-                    LeftButtonContent = "aceptar",
-                    RightButtonContent = "ver más"
+                    LeftButtonContent = AppResources.Ok.ToString(),
+                    RightButtonContent = AppResources.View.ToString()
                 };
 
                 messageBox.Dismissed += (s1, e1) =>

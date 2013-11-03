@@ -14,6 +14,8 @@ using System.Net.NetworkInformation;
 using Microsoft.Phone.Reactive;
 using Newtonsoft.Json;
 using TuCosta.classes;
+using System.Globalization;
+using TuCosta.Resources;
 
 namespace TuCosta.pages
 {
@@ -28,6 +30,7 @@ namespace TuCosta.pages
         {
             if (NetworkInterface.GetIsNetworkAvailable())
             {
+                string culture = CultureInfo.CurrentCulture.Name.ToString().Substring(0, 2);
                 string id = (this.NavigationContext.QueryString["id"]);
 
                 WebClient w = new WebClient();
@@ -39,7 +42,7 @@ namespace TuCosta.pages
                     txtMapName.Text = deserialized[0].name.ToString();
                 });
                 w.DownloadStringAsync(
-                new Uri("http://localhost/beach/types.php?idtype=" + id));
+                new Uri("http://tucosta.zz.mu/types.php?idtype=" + id + "&lang=" + culture));
 
                 WebClient w2 = new WebClient();
                 Observable
@@ -63,10 +66,10 @@ namespace TuCosta.pages
 
                 });
                 w2.DownloadStringAsync(
-                new Uri("http://localhost/beach/places.php?idtype=" + id));
+                new Uri("http://tucosta.zz.mu/places.php?idtype=" + id + "&lang=" + culture));
             }
             else
-                MessageBox.Show("No hay acceso a internet");
+                MessageBox.Show(AppResources.Internet, "Error", MessageBoxButton.OK);
         }
 
         private void PhoneList_Tap(object sender, System.Windows.Input.GestureEventArgs e)

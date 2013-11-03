@@ -18,9 +18,9 @@
 
     <!--LayoutRoot is the root grid where all page content is placed-->
     <Grid x:Name="LayoutRoot" Background="Transparent">
-        <controls:Pivot Title="TUCOSTA">
+        <controls:Pivot Title="{Binding Path=AppResources.AppTitle, Source={StaticResource LocalizedStrings}}">
             <!--Pivot item one-->
-            <controls:PivotItem Header="categorías">
+            <controls:PivotItem Header="{Binding Path=AppResources.AppCat, Source={StaticResource LocalizedStrings}}">
                 <!--Double line list with text wrapping-->
                 <ScrollViewer>
                     <Grid>
@@ -30,8 +30,15 @@
                                 <DataTemplate>
                                         <StackPanel Orientation="Horizontal">
                                             <Image HorizontalAlignment="Left" Height="100" VerticalAlignment="Top" Width="100" Source="{Binding image}"/>
-                                            <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding name}" VerticalAlignment="Top"  Style="{StaticResource PhoneTextTitle2Style}"/>
-                                        </StackPanel>
+                                            <StackPanel>
+                                                <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding name}" VerticalAlignment="Top"  Style="{StaticResource PhoneTextTitle2Style}"/>
+                                                <StackPanel Orientation="Horizontal">
+                                                <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding Path=AppResources.Likes, Source={StaticResource LocalizedStrings}}" VerticalAlignment="Top" Style="{StaticResource PhoneTextNormalStyle}" FontWeight="Bold" FontSize="24"/>
+                                                    <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding vote}" VerticalAlignment="Top" Style="{StaticResource PhoneTextNormalStyle}" FontSize="24"/>
+
+                                                </StackPanel>
+                                            </StackPanel>
+                                    </StackPanel>
                                 </DataTemplate>
                             </ListBox.ItemTemplate>
                         </ListBox>
@@ -40,7 +47,7 @@
             </controls:PivotItem>
 
             <!--Pivot item two-->
-            <controls:PivotItem Header="mapa">
+            <controls:PivotItem Header="{Binding Path=AppResources.AppMap, Source={StaticResource LocalizedStrings}}">
                 <Grid>
                     <my:Map 
                         Name="map1" 

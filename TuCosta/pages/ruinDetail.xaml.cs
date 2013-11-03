@@ -21,6 +21,8 @@ using System.Xml.Serialization;
 using Microsoft.Phone.Shell;
 using Microsoft.Phone.Tasks;
 using System.Threading;
+using System.Globalization;
+using TuCosta.Resources;
 
 namespace TuCosta.pages
 {
@@ -39,7 +41,17 @@ namespace TuCosta.pages
 
         private void loadMap(double latitude, double longitude)
         {
+            string culture = CultureInfo.CurrentCulture.Name.ToString().Substring(0, 2);
             WebClient wTemp = new WebClient();
+
+            string lat = latitude.ToString();
+            string lon = longitude.ToString();
+
+            lat = lat.Replace(",", ".");
+            lon = lon.Replace(",", ".");
+
+            string url = "http://tucosta.zz.mu/places.php?lang=" + culture + "&lat=" + lat + "&long=" + lon;
+
             Observable
             .FromEvent<DownloadStringCompletedEventArgs>(wTemp, "DownloadStringCompleted")
             .Subscribe(rTemp =>
@@ -53,7 +65,7 @@ namespace TuCosta.pages
                 cm.addPushpins(locations);
             });
             wTemp.DownloadStringAsync(
-            new Uri("http://localhost/beach/places.php?lat=" + latitude + "&long=" + longitude));
+            new Uri(url));
         }
 
         private void PhoneApplicationPage_Loaded_1(object sender, RoutedEventArgs e)
@@ -62,6 +74,7 @@ namespace TuCosta.pages
 
             if (NetworkInterface.GetIsNetworkAvailable())
             {
+                string culture = CultureInfo.CurrentCulture.Name.ToString().Substring(0, 2);
 
                 int id = int.Parse(this.NavigationContext.QueryString["id"]);
 
@@ -97,10 +110,10 @@ namespace TuCosta.pages
                     loadMap(deserialized[0].latitude, deserialized[0].longitude);
                 });
                 w.DownloadStringAsync(
-                new Uri("http://localhost/beach/places.php?idplace=" + id));
+                new Uri("http://tucosta.zz.mu/places.php?idplace=" + id + "&lang=" + culture));
             }
             else
-                MessageBox.Show("No hay internet");
+                MessageBox.Show(AppResources.Internet, "Error", MessageBoxButton.OK);
 
             try
             {
@@ -151,19 +164,16 @@ namespace TuCosta.pages
             {
                 var deserialized = JsonConvert.DeserializeObject<result>(r.EventArgs.Result);
                 if (deserialized.created == 3)
-                    MessageBox.Show("¡Ya voto por dicho proyecto, gracias!");
+                    MessageBox.Show(AppResources.SameVote);
                 else if (deserialized.created == 2)
-                    MessageBox.Show("¡Lo sentimos intente otro momento!");
+                    MessageBox.Show(AppResources.BugVote);
                 else if (deserialized.created == 0)
-                    MessageBox.Show("Necesita ingresar al sistema para votar, ¡Gracias!");
+                    MessageBox.Show(AppResources.NoLogin);
                 else
-                {
-                    MessageBox.Show("¡Gracias por votar!");
-                    NavigationService.Navigate(new Uri(string.Format("/pages/vote.xaml?idtopic=" + idtopic + "&random={0}" + "&nocache=" + Environment.TickCount, Guid.NewGuid()), UriKind.Relative));
-                }
+                    MessageBox.Show(AppResources.ThanksVote);
             });
             w.DownloadStringAsync(
-            new Uri("http://localhost/beach/vote.php?user=" + data[0].Username + "&place=" + idtopic + "&vote=" + vote + "&comment=" + reason));
+            new Uri("http://tucosta.zz.mu/vote.php?user=" + data[0].Username + "&place=" + idtopic + "&vote=" + vote + "&comment=" + reason));
         }
 
         private void PhoneList_Tap(object sender, System.Windows.Input.GestureEventArgs e)
@@ -176,10 +186,10 @@ namespace TuCosta.pages
             PhoneTextBox content = new PhoneTextBox();
             CustomMessageBox messageBox = new CustomMessageBox()
             {
-                Title = "¿Desea agregar un comentario?",
+                Title = AppResources.AddVote,
                 Content = content,
                 LeftButtonContent = "No",
-                RightButtonContent = "Sí"
+                RightButtonContent = AppResources.Yes
             };
             messageBox.Dismissed += (s2, e2) =>
             {
@@ -212,7 +222,7 @@ namespace TuCosta.pages
 
             });
             w.DownloadStringAsync(
-            new Uri("http://localhost/beach/comments.php?id=" + idtopic + "&r=" + Guid.NewGuid().ToString()));
+            new Uri("http://tucosta.zz.mu/comments.php?id=" + idtopic + "&r=" + Guid.NewGuid().ToString()));
         }
 
         private void likeButton_Click(object sender, EventArgs e)
@@ -224,8 +234,7 @@ namespace TuCosta.pages
             }
             catch
             {
-                MessageBox.Show("Necesita ingresar al sistema para votar, ¡Gracias!");
-                return;
+                MessageBox.Show(AppResources.NoLogin);
             }
         }
 
@@ -238,8 +247,7 @@ namespace TuCosta.pages
             }
             catch
             {
-                MessageBox.Show("Necesita ingresar al sistema para votar, ¡Gracias!");
-                return;
+                MessageBox.Show(AppResources.NoLogin);
             }
         }
 
@@ -268,6 +276,12 @@ namespace TuCosta.pages
             phoneCallTask.DisplayName = txtRuinName.Text;
 
             phoneCallTask.Show();
+        }
+
+        private void shareButton_Click(object sender, EventArgs e)
+        {
+            NavigationService.Navigate(new Uri("/pages/shareOptions.xaml?name=" + txtRuinName.Text, UriKind.Relative));
+
         }
 
     }

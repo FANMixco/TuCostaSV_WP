@@ -19,7 +19,7 @@
     <!--LayoutRoot is the root grid where all page content is placed-->
     <Grid x:Name="LayoutRoot" Background="Transparent">
         <!--Pivot Control-->
-        <controls:Pivot Title="¡BIENVENIDO A!">
+        <controls:Pivot Title="{Binding Path=AppResources.AppWelcome, Source={StaticResource LocalizedStrings}}">
             <!--Pivot item one-->
             <controls:PivotItem>
                 <controls:PivotItem.Header>
@@ -31,7 +31,7 @@
             </controls:PivotItem>
 
             <!--Pivot item two-->
-            <controls:PivotItem Header="descripción">
+            <controls:PivotItem Header="{Binding Path=AppResources.AppDescription, Source={StaticResource LocalizedStrings}}">
                 <ScrollViewer>
                     <Grid>
                         <TextBlock Name="detail" TextWrapping="Wrap" FontFamily="Segoe UI Semilight" FontSize="25" Margin="12,0,0,0" />
@@ -40,27 +40,27 @@
             </controls:PivotItem>
 
             <!--Pivot item two-->
-            <controls:PivotItem Header="contacto">
+            <controls:PivotItem Header="{Binding Path=AppResources.AppContact, Source={StaticResource LocalizedStrings}}">
                 <ScrollViewer>
                     <Grid>
                         <StackPanel>
-                            <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Teléfono:" VerticalAlignment="Top" FontWeight="Bold" Style="{StaticResource PhoneTextNormalStyle}" FontSize="36"/>
+                            <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding Path=AppResources.AppPhone, Source={StaticResource LocalizedStrings}}" VerticalAlignment="Top" FontWeight="Bold" Style="{StaticResource PhoneTextNormalStyle}" FontSize="36"/>
 
                             <TextBlock Name="phone" TextWrapping="Wrap" FontFamily="Segoe UI Semilight" FontSize="25" Margin="12,0,0,0" Tap="phone_Tap" Foreground="{StaticResource PhoneAccentBrush}" TextDecorations="Underline" />
 
-                            <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Correo Electrónico:" VerticalAlignment="Top" FontWeight="Bold" Style="{StaticResource PhoneTextNormalStyle}" FontSize="36"/>
+                            <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding Path=AppResources.AppEmail, Source={StaticResource LocalizedStrings}}" VerticalAlignment="Top" FontWeight="Bold" Style="{StaticResource PhoneTextNormalStyle}" FontSize="36"/>
 
                             <TextBlock Name="email" TextWrapping="Wrap" FontFamily="Segoe UI Semilight" FontSize="25" Margin="12,0,0,0" Tap="TextBlock_Tap_1" Foreground="{StaticResource PhoneAccentBrush}" TextDecorations="Underline" />
 
-                            <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Sitio Web:" VerticalAlignment="Top" FontWeight="Bold" Style="{StaticResource PhoneTextNormalStyle}" FontSize="36"/>
+                            <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding Path=AppResources.AppWeb, Source={StaticResource LocalizedStrings}}" VerticalAlignment="Top" FontWeight="Bold" Style="{StaticResource PhoneTextNormalStyle}" FontSize="36"/>
 
                             <TextBlock Name="website" TextWrapping="Wrap" FontFamily="Segoe UI Semilight" FontSize="25" Margin="12,0,0,0" Foreground="{StaticResource PhoneAccentBrush}" Tap="TextBlock_Tap_2" TextDecorations="Underline" />
 
-                            <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Horario:" VerticalAlignment="Top" FontWeight="Bold" Style="{StaticResource PhoneTextNormalStyle}" FontSize="36"/>
+                            <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding Path=AppResources.AppSchedule, Source={StaticResource LocalizedStrings}}" VerticalAlignment="Top" FontWeight="Bold" Style="{StaticResource PhoneTextNormalStyle}" FontSize="36"/>
 
                             <TextBlock Name="schedule" TextWrapping="Wrap" FontFamily="Segoe UI Semilight" FontSize="25" Margin="12,0,0,0" />
 
-                            <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Información adicional:" VerticalAlignment="Top" FontWeight="Bold" Style="{StaticResource PhoneTextNormalStyle}" FontSize="36"/>
+                            <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding Path=AppResources.AppExtra, Source={StaticResource LocalizedStrings}}" VerticalAlignment="Top" FontWeight="Bold" Style="{StaticResource PhoneTextNormalStyle}" FontSize="36"/>
 
                             <TextBlock Name="extra" TextWrapping="Wrap" FontFamily="Segoe UI Semilight" FontSize="25" Margin="12,0,0,0" />
 
@@ -70,7 +70,7 @@
             </controls:PivotItem>
 
             <!--Pivot item two-->
-            <controls:PivotItem Header="mapa">
+            <controls:PivotItem Header="{Binding Path=AppResources.AppMap, Source={StaticResource LocalizedStrings}}">
                 <Grid>
                     <my:Map 
                         Name="map1" 
@@ -80,15 +80,15 @@
             </controls:PivotItem>
 
             <!--Pivot item two-->
-            <controls:PivotItem Foreground="White" Header="comentarios">
+            <controls:PivotItem Header="{Binding Path=AppResources.Comments, Source={StaticResource LocalizedStrings}}">
                 <ListBox x:Name="reasonList" Height="auto" Margin="12,0,0,0">
 
                     <ListBox.ItemTemplate>
                         <DataTemplate>
                             <Border BorderThickness="0,0,0,3" BorderBrush="White" Width="768">
                                 <StackPanel>
-                                    <TextBlock Foreground="White" HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding reason}" VerticalAlignment="Top"  Style="{StaticResource PhoneTextTitle2Style}"/>
-                                    <TextBlock Foreground="White" HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding date_entry}" VerticalAlignment="Top"  Style="{StaticResource PhoneTextTitle3Style}"/>
+                                    <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding reason}" VerticalAlignment="Top"  Style="{StaticResource PhoneTextTitle2Style}"/>
+                                    <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding date_entry}" VerticalAlignment="Top"  Style="{StaticResource PhoneTextTitle3Style}"/>
                                 </StackPanel>
                             </Border>
 
@@ -107,6 +107,7 @@
         <shell:ApplicationBar Mode="Minimized" IsMenuEnabled="True" Opacity="0.9">
             <shell:ApplicationBarIconButton x:Name="likeButton" IconUri="/Toolkit.Content/ApplicationBar.Check.png" Text="like" Click="likeButton_Click"/>
             <shell:ApplicationBarIconButton x:Name="dislikeButton" IconUri="/Toolkit.Content/ApplicationBar.Cancel.png" Text="dislike" Click="dislikeButton_Click"/>
+            <shell:ApplicationBarIconButton x:Name="shareButton" IconUri="/Assets/AppBar/appbar.share.rest.png" Text="share" Click="shareButton_Click"/>
 
             <shell:ApplicationBar.MenuItems>
                 <shell:ApplicationBarMenuItem x:Name="menuProfile" Text="profile" Click="menuProfile_Click"/>

@@ -18,6 +18,9 @@ using Newtonsoft.Json;
 using Microsoft.Phone.Reactive;
 using System.IO;
 using Microsoft.Phone.Tasks;
+using System.Globalization;
+using System.Net.NetworkInformation;
+using TuCosta.Resources;
 
 namespace TuCosta
 {
@@ -32,40 +35,46 @@ namespace TuCosta
 
         private void PhoneApplicationPage_Loaded_1(object sender, RoutedEventArgs e)
         {
-
-            WebClient w = new WebClient();
-
-            Observable
-            .FromEvent<DownloadStringCompletedEventArgs>(w, "DownloadStringCompleted")
-            .Subscribe(r =>
+            if (NetworkInterface.GetIsNetworkAvailable())
             {
-                var deserialized = JsonConvert.DeserializeObject<List<types>>(r.EventArgs.Result);
-                lawList.ItemsSource = deserialized;
-            });
-            w.DownloadStringAsync(
-            new Uri("http://localhost/beach/types.php"));
+                string culture = CultureInfo.CurrentCulture.Name.ToString().Substring(0, 2);
 
-            WebClient w2 = new WebClient();
-            Observable
-            .FromEvent<DownloadStringCompletedEventArgs>(w2, "DownloadStringCompleted")
-            .Subscribe(r =>
-            {
-                var deserialized = JsonConvert.DeserializeObject<List<places>>(r.EventArgs.Result);
+                WebClient w = new WebClient();
 
-                createMap cm = new createMap(map1);
+                Observable
+                .FromEvent<DownloadStringCompletedEventArgs>(w, "DownloadStringCompleted")
+                .Subscribe(r =>
+                {
+                    var deserialized = JsonConvert.DeserializeObject<List<types>>(r.EventArgs.Result);
+                    lawList.ItemsSource = deserialized;
+                });
+                w.DownloadStringAsync(
+                new Uri("http://tucosta.zz.mu/types.php?lang=" + culture));
 
-                cm.setCenter(13.794185, -88.896530, 8, true);
+                WebClient w2 = new WebClient();
+                Observable
+                .FromEvent<DownloadStringCompletedEventArgs>(w2, "DownloadStringCompleted")
+                .Subscribe(r =>
+                {
+                    var deserialized = JsonConvert.DeserializeObject<List<places>>(r.EventArgs.Result);
 
-                List<Tuple<double, double, string, int, int, bool>> locations = new List<Tuple<double, double, string, int, int, bool>>();
+                    createMap cm = new createMap(map1);
 
-                for (int i = 0; i < deserialized.Count; i++)
-                    locations.Add(new Tuple<double, double, string, int, int, bool>(deserialized[i].latitude, deserialized[i].longitude, deserialized[i].place, deserialized[i].idplace, deserialized[i].idtype, false));
+                    cm.setCenter(13.794185, -88.896530, 8, true);
 
-                cm.addPushpins(locations);
+                    List<Tuple<double, double, string, int, int, bool>> locations = new List<Tuple<double, double, string, int, int, bool>>();
 
-            });
-            w2.DownloadStringAsync(
-            new Uri("http://localhost/beach/places.php?"));
+                    for (int i = 0; i < deserialized.Count; i++)
+                        locations.Add(new Tuple<double, double, string, int, int, bool>(deserialized[i].latitude, deserialized[i].longitude, deserialized[i].place, deserialized[i].idplace, deserialized[i].idtype, false));
+
+                    cm.addPushpins(locations);
+
+                });
+                w2.DownloadStringAsync(
+                new Uri("http://tucosta.zz.mu/places.php?lang=" + culture));
+            }
+            else
+                MessageBox.Show(AppResources.Internet, "Error", MessageBoxButton.OK);
 
 
             try
